@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  broker_name: MyString
+  broker_details: MyText
+  locations: 1
+  products: 1
+  office_hour: MyText
+  support: 1
+  trading_functionality: 1
+  features: 1
+
+two:
+  broker_name: MyString
+  broker_details: MyText
+  locations: 1
+  products: 1
+  office_hour: MyText
+  support: 1
+  trading_functionality: 1
+  features: 1

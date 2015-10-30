@@ -1,0 +1,60 @@
+<%= form_for(@broker) do |f| %>
+  <% if @broker.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@broker.errors.count, "error") %> prohibited this broker from being saved:</h2>
+
+      <ul>
+      <% @broker.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :broker_name %><br>
+    <%= f.text_field :broker_name, :class => 'form-control' %>
+  </div>
+  <div class="field">
+    <%= f.label :broker_details %><br>
+    <%= f.text_area :broker_details, :class => 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :locations %><br>
+    <%= f.select(:locations, Broker.locations.keys.map {|location| [location.titleize, location]}, {}, { :class => 'form-control' }) %>
+  </div>
+  <div class="field">
+    <%= f.label :products %><br>
+
+<%= hidden_field_tag "broker[product_ids][]", nil %>
+<% Product.all.each do |product| %>
+<%= check_box_tag "broker[product_ids][]", product.id, @broker.product_ids.include?(product.id), id: dom_id(product) %>
+<%= label_tag dom_id(product), product.product_name %><br>
+  <% end %>
+
+  </div>
+  <div class="field">
+    <%= f.label :office_hour %><br>
+    <%= f.text_area :office_hour, :class => 'form-control' %>
+  </div>
+  <div class="field">
+    <%= f.label :support %><br>
+<%= hidden_field_tag "broker[support_ids][]", nil %>
+<% Support.all.each do |support| %>
+<%= check_box_tag "broker[support_ids][]", support.id, @broker.support_ids.include?(support.id), id: dom_id(support) %>
+<%= label_tag dom_id(support), support.support_name %><br>
+  <% end %>
+  </div>
+  <div class="field">
+    <%= f.label :trading_functionality %><br>
+    <%= f.number_field :trading_functionality, :class => 'form-control' %>
+  </div>
+  <div class="field">
+    <%= f.label :features %><br>
+    <%= f.number_field :features, :class => 'form-control' %>
+  </div>
+  <div class="actions">
+    <%= f.submit  :class => 'btn btn-primary'%>
+  </div>
+<% end %>

@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Broker name:</strong>
+  <%= @broker.broker_name %>
+</p>
+
+<p>
+  <strong>Broker details:</strong>
+  <%= @broker.broker_details %>
+</p>
+
+<p>
+  <strong>Locations:</strong>
+  <%= @broker.locations %>
+</p>
+
+<p>
+  <strong>Products:</strong>
+  <%= @broker.products %>
+</p>
+
+<p>
+  <strong>Office hour:</strong>
+  <%= @broker.office_hour %>
+</p>
+
+<p>
+  <strong>Support:</strong>
+  <%= @broker.support %>
+</p>
+
+<p>
+  <strong>Trading functionality:</strong>
+  <%= @broker.trading_functionality %>
+</p>
+
+<p>
+  <strong>Features:</strong>
+  <%= @broker.features %>
+</p>
+
+<%= link_to 'Edit', edit_broker_path(@broker) %> |
+<%= link_to 'Back', brokers_path %>
